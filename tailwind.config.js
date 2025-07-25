@@ -7,8 +7,8 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: "#69BB41",
-        secondary: "#EBF8FF"
+        primary: "#0116C5",
+        secondary: "#0116C5"
       },
       animation: {
         "spin-reverse": "spin 1s linear reverse infinite",

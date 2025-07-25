@@ -1,14 +1,11 @@
 import { createBrowserRouter } from "react-router-dom";
-import AllUsers from "../component/Main/AllUsers/AllUsers";
 import Notification from "../component/Main/Notification/Notification";
 import MainLayout from "../layout/MainLayout";
 import ForgetPassword from "../page/Auth/ForgetPassword/ForgetPassword";
 import NewPassword from "../page/Auth/NewPassword/NewPassword";
 import Otp from "../page/Auth/Otp/Otp";
 import SignIn from "../page/Auth/SignIn/SignIn";
-import DashboardHome from "../page/DashboardHome/DashboardHome";
-import AdminRoutes from "./AdminRoutes";
-import PersonalInformation from "../component/Main/PersonalInformation/PersonalInformation";
+import DashboardHome from "../page/DashboardHome/DashboardHome";import PersonalInformation from "../component/Main/PersonalInformation/PersonalInformation";
 import EditInformation from "../component/Main/EditPersonalInfo/EditPersonalInfo";
 import Settings from "../component/Main/Settings/Settings";
 import EditPrivacyPolicy from "../component/Main/EditPrivacyPolicy/EditPrivacyPolicy";
@@ -18,25 +15,20 @@ import EditTermsConditions from "../component/Main/EditTermsConditions/EditTerms
 import EditAboutUs from "../component/Main/EditAboutUs/EditAboutUs";
 import PrivacyPolicy from "../page/PrivacyPolicy/PrivacyPolicy";
 import ErrorPage from "../component/Main/ErrorPage/ErrorPage";
-import Booking from "../component/Main/Booking/Booking";
-import Earning from "../component/Main/Earning/Earning";
-import AddCar from "../component/Main/AddCar/AddCar";
-import EditCar from "../component/Main/EditCar/EditCar";
-import CarTrackingDetails from "../component/Main/CarTracking/CarTrackingDetails";
-import AllCars from "../component/Main/AllCars/AllCars";
-import ManualBooking from "../component/Main/ManualBooking/ManualBooking";
-import AddManualBooking from "../component/Main/AddManualBooking/AddManualBooking";
-import Employee from "../component/Main/Employee/Employee";
-import EditEmployee from "../component/Main/EditEmployee/EditEmployee";
-import AddEmployee from "../component/Main/AddEmployee/AddEmployee";
+import Subscription from "../component/Main/Subscription/Subscription";
+import AllDrivers from "../component/Main/AllDrivers/AllDrivers";
+import AllCompany from "../component/Main/AllCompany/AllCompany";
+import Earnings from "../component/Main/Earning/Earning";
+import AddSubscription from "../component/Main/AddSubscription/AddSubscription";
+import EditSubscription from "../component/Main/EditSubscription/EditSubscription";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: (
-      <AdminRoutes>
-        <MainLayout />
-      </AdminRoutes>
+      // <AdminRoutes>
+      // </AdminRoutes>
+      <MainLayout />
     ),
     errorElement: <ErrorPage />,
     children: [
@@ -45,52 +37,28 @@ const router = createBrowserRouter([
         element: <DashboardHome />,
       },
       {
-        path: "all-users",
-        element: <AllUsers />,
+        path: "all-drivers",
+        element: <AllDrivers />,
       },
       {
-        path: "/employees",
-        element: <Employee />,
+        path: "all-companys",
+        element: <AllCompany />,
       },
       {
-        path: "/employees/add-employee",
-        element: <AddEmployee />,
+        path: "/subscriptions",
+        element: <Subscription />,
       },
       {
-        path: "/employees/edit-employee/:id",
-        element: <EditEmployee />,
+        path: "/add-subscription",
+        element: <AddSubscription />,
       },
       {
-        path: "booking",
-        element: <Booking />,
-      },
-      {
-        path: "/manual-booking",
-        element: <ManualBooking />,
-      },
-      {
-        path: "/add-manual-booking",
-        element: <AddManualBooking />,
+        path: "/edit-subscription/:id",
+        element: <EditSubscription />,
       },
       {
         path: "/earning",
-        element: <Earning />,
-      },
-      {
-        path: "/vehicles",
-        element: <AllCars />,
-      },
-      {
-        path: "/add-vehicle",
-        element: <AddCar />,
-      },
-      {
-        path: "/edit-vehicle/:id",
-        element: <EditCar />,
-      },
-      {
-        path: "/car-tracking-details/:id",
-        element: <CarTrackingDetails />,
+        element: <Earnings />,
       },
       {
         path: "personal-info",
@@ -103,6 +71,10 @@ const router = createBrowserRouter([
       {
         path: "/settings",
         element: <Settings />,
+      },
+      {
+        path: "settings/about-us",
+        element: <AboutUs />,
       },
       {
         path: "settings/privacy-policy",

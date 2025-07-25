@@ -1,4 +1,4 @@
-import otpImage from "../../../assets/auth/otp.png";
+import image from "../../../assets/auth/image.png";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { IoIosArrowBack } from "react-icons/io";
 import OTPInput from "react-otp-input";
@@ -29,9 +29,11 @@ const Otp = () => {
   };
   return (
     <div className="w-full max-w-6xl mx-auto h-full md:h-screen grid grid-cols-1 md:grid-cols-2 place-content-center px-5 py-10 gap-8 bg-white ">
-      <div>
-        <img src={otpImage} className="w-full h-full mx-auto" alt="" />
-      </div>
+      <img
+        src={image}
+        className="w-full md:w-[448px] h-96 md:h-[460px] mx-auto"
+        alt="Sign in illustration"
+      />
       <div className="mt-16">
         <div className="mb-5 space-y-5">
           <h1 className="font-semibold text-xl flex items-center gap-2">

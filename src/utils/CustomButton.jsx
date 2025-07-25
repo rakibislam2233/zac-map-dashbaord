@@ -25,20 +25,20 @@ const CustomButton = ({
           style={{
             display: "flex",
             alignItems: "center",
-            padding: "28px 20px",
+            padding: "22px 16px",
             width: "100%",
-            height: "60px",
+            height: "40px",
             gap: "10px",
-            backgroundColor: "#69BB41",
+            backgroundColor: "#0116C5",
             color: "#ffffff", // Ensure text color stays white
           }}
           // Custom hover style to maintain background and text color
           onMouseEnter={(e) => {
-            e.target.style.backgroundColor = "#69BB41"; // Maintain the same background color on hover
+            e.target.style.backgroundColor = "#0116C5"; // Maintain the same background color on hover
             e.target.style.color = "#ffffff"; // Maintain white text color on hover
           }}
           onMouseLeave={(e) => {
-            e.target.style.backgroundColor = "#69BB41"; // Maintain the same background color when hover ends
+            e.target.style.backgroundColor = "#0116C5"; // Maintain the same background color when hover ends
             e.target.style.color = "#ffffff"; // Maintain white text color when hover ends
           }}
         >

@@ -1,73 +1,12 @@
-// import { useEffect } from "react";
-import { Form, Button } from "antd";
-import { PlusOutlined } from "@ant-design/icons";
-import CustomInput from "../../../utils/CustomInput";
-import CustomButton from "../../../utils/CustomButton";
-import { TbTrash } from "react-icons/tb";
-import { Link } from "react-router-dom";
+import { Button, Form } from "antd";
 import { IoChevronBack } from "react-icons/io5";
-// import {
-//   useGetSingleSubscriptionQuery,
-//   useUpdateSubscriptionMutation,
-// } from "../../../redux/features/subscriptions/subscriptionsApi";
+import { Link } from "react-router-dom";
+import CustomInput from "../../../utils/CustomInput";
+import { TbTrash } from "react-icons/tb";
+import { PlusOutlined } from "@ant-design/icons";
+import CustomButton from "../../../utils/CustomButton";
 
-const EditSubscription = () => {
-  // const { id } = useParams();
-  // const [form] = Form.useForm();
-  // const navigate = useNavigate();
-  // const { data: subscriptionData, isLoading } = useGetSingleSubscriptionQuery(
-  //   id,
-  //   {
-  //     refetchOnMountOrArgChange: true,
-  //     skip: !id,
-  //   }
-  // );
-  // const [updateSubscription, { isLoading: isUpdating }] =
-  //   useUpdateSubscriptionMutation();
-
-  // useEffect(() => {
-  //   if (subscriptionData) {
-  //     // Ensure features and subscriptionFee are formatted correctly
-  //     const formattedData = {
-  //       ...subscriptionData,
-  //       features:
-  //         subscriptionData.features?.map((feature) => ({ feature })) || [],
-  //       subscriptionFee: {
-  //         western: subscriptionData.subscriptionFee.western,
-  //         africa: subscriptionData.subscriptionFee.africa,
-  //       },
-  //     };
-  //     form.setFieldsValue(formattedData);
-  //   }
-  // }, [subscriptionData, form]);
-
-  // const onFinish = async (values) => {
-  //   try {
-  //     const formattedValues = {
-  //       ...values,
-  //       features: values.features.map((feature) => feature?.feature),
-  //       subscriptionFee: {
-  //         western: parseFloat(values.subscriptionFee.western) || 0,
-  //         africa: parseFloat(values.subscriptionFee.africa) || 0,
-  //       },
-  //     };
-  //     await updateSubscription({ id, data: formattedValues }).unwrap();
-  //     toast.success("Subscription Updated Successfully");
-  //     navigate("/subscription");
-  //     form.resetFields();
-  //   } catch (error) {
-  //     toast.error("Something went wrong");
-  //   }
-  // };
-
-  // if (isLoading) {
-  //   return (
-  //     <div className="w-full flex justify-center py-10">
-  //       <Spin />
-  //     </div>
-  //   );
-  // }
-
+const AddSubscription = () => {
   return (
     <section className="w-full max-w-4xl mx-auto px-5 pb-5 bg-white rounded-lg">
       <div className="flex justify-between items-center py-6">
@@ -75,7 +14,7 @@ const EditSubscription = () => {
           <Link to="/subscriptions">
             <IoChevronBack className="text-2xl" />
           </Link>
-          <h1 className="text-2xl font-semibold">Edit Subscription Plan</h1>
+          <h1 className="text-2xl font-semibold">Add Subscription Plan</h1>
         </div>
       </div>
       <Form name="add-subscription" layout="vertical">
@@ -239,11 +178,11 @@ const EditSubscription = () => {
 
         {/* Submit Button */}
         <Form.Item>
-          <CustomButton>Edit Subscription</CustomButton>
+          <CustomButton>Add Subscription</CustomButton>
         </Form.Item>
       </Form>
     </section>
   );
 };
 
-export default EditSubscription;
+export default AddSubscription;

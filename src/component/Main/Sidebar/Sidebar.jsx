@@ -1,13 +1,15 @@
 /* eslint-disable react/prop-types */
 import { IoIosLogOut } from "react-icons/io";
-import { IoSettingsOutline, IoWalletOutline } from "react-icons/io5";
+import { IoSettingsOutline } from "react-icons/io5";
 import { LuLayoutDashboard } from "react-icons/lu";
 import { PiUsers } from "react-icons/pi";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { logoutUser } from "../../../redux/features/auth/authSlice";
-import logo from "../../../assets/logo/logo.png";
-import { CalendarCheck, Car, UsersRound } from "lucide-react";
+import logo from "../../../assets/auth/image.png";
+import { Building2 } from "lucide-react";
+import { FaMoneyBill } from "react-icons/fa";
+import { TbBrandGoogleAnalytics } from "react-icons/tb";
 
 const sidebarItems = [
   {
@@ -16,34 +18,24 @@ const sidebarItems = [
     icon: <LuLayoutDashboard className="size-7" />,
   },
   {
-    path: "/booking",
-    name: "Booking",
-    icon: <CalendarCheck className="size-7" />,
-  },
-  {
-    path: "/manual-booking",
-    name: "Manual Booking",
-    icon: <CalendarCheck className="size-7" />,
-  },
-  {
-    path: "/earning",
-    name: "Earning",
-    icon: <IoWalletOutline className="size-7" />,
-  },
-  {
-    path:"/vehicles",
-    name: "Vehicles",
-    icon: <Car className="size-7" />,
-  },
-  {
-    path: "/all-users",
-    name: "Users",
+    path: "/all-drivers",
+    name: "Drivers",
     icon: <PiUsers className="size-7" />,
   },
   {
-    path: "/employees",
-    name: "Employees",
-    icon: <UsersRound className="size-6" />,
+    path: "/all-companys",
+    name: "Companies",
+    icon: <Building2 className="size-7" />,
+  },
+  {
+    path: "/earning",
+    name: "Earnings",
+    icon: <FaMoneyBill className="size-7" />,
+  },
+  {
+    path: "/subscriptions",
+    name: "Subscriptions",
+    icon: <TbBrandGoogleAnalytics className="size-7" />,
   },
   {
     path: "/settings",
@@ -67,15 +59,15 @@ const Sidebar = ({ isSidebarOpen }) => {
       <div
         className={`fixed left-0 h-full md:h-screen ${
           isSidebarOpen ? "w-[300px]" : "w-[80px]"
-        } shadow-md transition-all bg-[#FEFEFE]  duration-300 overflow-auto`}
+        } shadow-md transition-all bg-primary  duration-300 overflow-auto`}
       >
         {/* Sidebar Logo */}
-        <div className="flex justify-center border-b border-[#E5E5E5]">
+        <div className="flex justify-center pt-2 pb-5">
           <img
             src={logo}
             alt="Logo"
             className={`transition-all ${
-              isSidebarOpen ? "size-32" : "w-16 h-16"
+              isSidebarOpen ? "size-28" : "w-16 h-16"
             }`}
           />
         </div>
@@ -89,13 +81,16 @@ const Sidebar = ({ isSidebarOpen }) => {
                 to={item.path}
                 className={({ isActive }) =>
                   isActive
-                    ? `${isSidebarOpen ? "px-10 py-4" : "px-5 py-2"} flex items-center gap-3  font-semibold text-primary`
-                    : `${isSidebarOpen ? "px-10 py-4" : "px-5 py-2"} flex items-center gap-3  font-semibold text-gray-500`
+                    ? `${
+                        isSidebarOpen ? "px-10 py-4" : "px-5 py-2"
+                      } flex items-center gap-3  font-semibold bg-white text-primary`
+                    : `${
+                        isSidebarOpen ? "px-10 py-4" : "px-5 py-2"
+                      } flex items-center gap-3  font-semibold text-white`
                 }
               >
                 {item.icon}
                 {isSidebarOpen && <span>{item.name}</span>}
-                 
               </NavLink>
             ))}
           </ul>
@@ -104,7 +99,9 @@ const Sidebar = ({ isSidebarOpen }) => {
         {/* Logout Button */}
         <button
           onClick={handleLogout}
-          className={`flex items-center gap-2  text-rose-500 mt-10 font-semibold ${isSidebarOpen ? "px-10 py-4" : "px-5 py-2"} `}
+          className={`flex items-center gap-2  text-rose-500 mt-10 font-semibold ${
+            isSidebarOpen ? "px-10 py-4" : "px-5 py-2"
+          } `}
         >
           <IoIosLogOut className="size-7" />
           {isSidebarOpen && <span>Logout</span>}

@@ -1,4 +1,4 @@
-import changePasswordImage from "../../../assets/auth/changePassword.png";
+import image from "../../../assets/auth/image.png";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { IoIosArrowBack } from "react-icons/io";
 import { Form } from "antd"; // Import Ant Design Form
@@ -30,9 +30,9 @@ const NewPassword = () => {
     <div className="w-full max-w-6xl mx-auto h-full md:h-screen grid grid-cols-1 md:grid-cols-2 place-content-center px-5 py-10 gap-8 bg-white ">
       <div>
         <img
-          src={changePasswordImage}
-          className="w-full h-full mx-auto"
-          alt="Change Password Illustration"
+          src={image}
+          className="w-full md:w-[448px] h-96 md:h-[460px] mx-auto"
+          alt="Sign in illustration"
         />
       </div>
       <div className="mt-16">

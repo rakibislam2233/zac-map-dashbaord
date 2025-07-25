@@ -32,6 +32,7 @@ const Settings = () => {
   // Settings navigation items
   const settingsItem = [
     { title: "Change password", path: "change-password" },
+    { title: "About Us", path: "about-us" },
     { title: "Privacy Policy", path: "privacy-policy" },
     { title: "Terms & Conditions", path: "terms-conditions" },
   ];

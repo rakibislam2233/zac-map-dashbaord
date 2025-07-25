@@ -1,69 +1,96 @@
-import { FaPlus } from "react-icons/fa";
+import { ArrowLeft, Check, Plus } from "lucide-react";
 import { Link } from "react-router-dom";
-import SubscriptionCard from "./SubscriptionCard";
-import { Spin, Pagination } from "antd";
-import { useState } from "react";
-import { useGetSubscriptionsQuery } from "../../../redux/features/subscriptions/subscriptionsApi";
 
 const Subscription = () => {
-  const [currentPage, setCurrentPage] = useState(1);
-  const limit = 8; // Number of items per page
-
-  const { data: responseData, isLoading } = useGetSubscriptionsQuery({
-    page: currentPage,
-    limit: limit,
-  });
-
-  const allSubscriptions = responseData?.results;
-  const totalResults = responseData?.totalResults;
-
-  let content = null;
-
-  if (isLoading) {
-    content = (
-      <div className="w-full flex justify-center py-10">
-        <Spin />
-      </div>
-    );
-  } else if (!allSubscriptions?.length) {
-    content = <h1>No Subscriptions Found</h1>;
-  } else {
-    content = (
-      <>
-        <div className="w-full grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-5 pb-10">
-          {allSubscriptions?.map((subscription, i) => (
-            <SubscriptionCard key={i} subscription={subscription} />
-          ))}
-        </div>
-        {/* Pagination Component */}
-        <div className="flex justify-center my-5">
-          <Pagination
-            current={currentPage}
-            pageSize={limit}
-            total={totalResults}
-            onChange={(page) => setCurrentPage(page)}
-            showSizeChanger={false}
-          />
-        </div>
-      </>
-    );
-  }
-
-
+  const subscriptions = [
+    {
+      id: 1,
+      name: "Basic",
+      price: "0.79",
+      duration: "Per Month",
+      features: [
+        "Early access to new features",
+        "Early access to new features",
+        "Early access to new features",
+      ],
+    },
+    {
+      id: 2,
+      name: "Premium",
+      price: "9.99",
+      duration: "Per Month",
+      features: [
+        "All Basic features",
+        "Priority customer support",
+        "Advanced analytics",
+        "Custom integrations",
+      ],
+    },
+  ];
   return (
-    <section className="w-full px-5 min-h-screen bg-[#F5F5F5]">
-      <div className="flex flex-col md:flex-row  gap-6 justify-between items-center py-[19px] border-b-2 border-gray-400 mb-4">
-        <h1 className="text-2xl font-semibold ">All Subscriptions</h1>
-        <Link to="/subscription/add-subscription">
-          <button className="px-8 py-3 bg-primary text-white flex justify-center items-center gap-1 rounded text-sm">
-            <FaPlus />
-            Add Subscription
+    <div className="w-full min-h-screen p-6">
+      {/* Header */}
+      <div className="flex items-center justify-between mb-8">
+        <div className="flex items-center gap-3">
+          <ArrowLeft className="w-6 h-6 text-gray-600 cursor-pointer" />
+          <h1 className="text-2xl font-semibold text-gray-900">Subscription</h1>
+        </div>
+        <Link to="/add-subscription">
+          <button className="flex items-center gap-2 bg-primary hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-medium transition-colors">
+            <Plus className="w-4 h-4" />
+            Add subscription
           </button>
         </Link>
       </div>
-      {content}
-    </section>
+
+      {/* Subscription Cards */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {subscriptions.map((subscription) => (
+          <div
+            key={subscription.id}
+            className="bg-white rounded-lg border border-gray-200 p-6"
+          >
+            {/* Plan Name */}
+            <h2 className="text-xl font-bold text-gray-900 text-center mb-4">
+              {subscription.name}
+            </h2>
+
+            {/* Price */}
+            <div className="text-center mb-6">
+              <div className="flex items-center justify-center">
+                <span className="text-2xl font-bold text-gray-900">$</span>
+                <span className="text-4xl font-bold text-gray-900">
+                  {subscription.price}
+                </span>
+              </div>
+              <p className="text-gray-600 text-sm mt-1">
+                {subscription.duration}
+              </p>
+            </div>
+
+            {/* Features */}
+            <div className="space-y-3 mb-6">
+              {subscription.features.map((feature, index) => (
+                <div key={index} className="flex items-center gap-3">
+                  <Check className="w-4 h-4 text-green-500 flex-shrink-0" />
+                  <span className="text-sm text-gray-700">{feature}</span>
+                </div>
+              ))}
+            </div>
+
+            {/* Action Buttons */}
+            <div className="flex gap-3">
+              <button className="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-700 py-2 px-4 rounded-lg font-medium transition-colors">
+                Edit
+              </button>
+              <button className="flex-1 bg-primary hover:bg-blue-700 text-white py-2 px-4 rounded-lg font-medium transition-colors">
+                Delete
+              </button>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
   );
 };
-
 export default Subscription;

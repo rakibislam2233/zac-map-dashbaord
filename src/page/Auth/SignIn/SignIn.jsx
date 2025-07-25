@@ -1,4 +1,4 @@
-import signinImage from "../../../assets/auth/signIn.png";
+import signinImage from "../../../assets/auth/image.png";
 import { Link, useNavigate } from "react-router-dom";
 import { Form, Checkbox } from "antd";
 import CustomButton from "../../../utils/CustomButton";
@@ -43,7 +43,7 @@ const SignIn = () => {
       <div className="flex justify-center">
         <img
           src={signinImage}
-          className="w-full h-full mx-auto"
+          className="w-full md:w-[448px] h-96 md:h-[460px] mx-auto"
           alt="Sign in illustration"
         />
       </div>

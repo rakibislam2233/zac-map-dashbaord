@@ -1,5 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
-import forgetPasswordImage from "../../../assets/auth/forget.png";
+import image from "../../../assets/auth/image.png";
 import { Link, useNavigate } from "react-router-dom";
 import { IoIosArrowBack } from "react-icons/io";
 import { Form } from "antd";
@@ -36,9 +36,9 @@ const ForgetPassword = () => {
     <div className="w-full max-w-6xl mx-auto h-full md:h-screen grid grid-cols-1 md:grid-cols-2 place-content-center px-5 py-10 gap-8 bg-white ">
       <div>
         <img
-          src={forgetPasswordImage}
-          className="w-full h-full mx-auto"
-          alt="Forgot Password Illustration"
+          src={image}
+          className="w-full md:w-[448px] h-96 md:h-[460px] mx-auto"
+          alt="Sign in illustration"
         />
       </div>
       <div className="mt-16">
